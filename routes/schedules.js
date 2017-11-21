@@ -43,7 +43,7 @@ router.get('/:scheduleId', authenticationEnsurer, (req, res, next) => {
     },
     order: '"updatedAt" DESC'
   }).then((schedule) => {
-    if (schedule == req.params.scheduleId) {
+    if (schedule) {
       storedSchedule = schedule;
       return Candidate.findAll({
         where: { scheduleId: schedule.scheduleId },
