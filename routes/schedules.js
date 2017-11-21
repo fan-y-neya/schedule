@@ -175,7 +175,7 @@ router.post('/:scheduleId', authenticationEnsurer, csrfProtection, (req, res, ne
             // 追加されているかチェック
             const candidateNames = parseCandidateNames(req);
             console.log('name:' + candidateNames);
-            if (candidateNames !== NULL) {
+            if (candidateNames) {
               createCandidatesAndRedirect(candidateNames, schedule.scheduleId, res);
             } else {
               res.redirect('/schedules/' + schedule.scheduleId);
